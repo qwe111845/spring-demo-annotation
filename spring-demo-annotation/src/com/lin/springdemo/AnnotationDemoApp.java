@@ -16,6 +16,8 @@ public class AnnotationDemoApp {
 		
 		System.out.println(theCoach.getDailyFortune());
 
+		((TennisCoach) theCoach).getCoach();
+
 		
 		context.close();
 		

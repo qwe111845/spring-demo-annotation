@@ -8,8 +8,8 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
     
     <!--  Add content -->
-    <context:component-scan base-package="com.lin.springdemo"></context:component-scan>
-    
+    <context:component-scan base-package="com.lin.springdemo"></context:component-scan>  
+    <context:property-placeholder location="classpath:coach.properties"/>    
 </beans>
 
 

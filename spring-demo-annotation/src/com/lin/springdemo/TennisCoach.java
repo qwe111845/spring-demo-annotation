@@ -2,6 +2,7 @@ package com.lin.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -10,6 +11,12 @@ public class TennisCoach implements Coach {
 	@Autowired
 	@Qualifier("normalFortuneService")
 	private FortuneService fortuneService;
+	
+	@Value("${coach.email}")
+	private String email;
+	
+	@Value("${coach.team}")
+	private String team;
 	
 	public TennisCoach() {
 		System.out.println("Tennis Coach: In construct method.");
@@ -36,6 +43,11 @@ public class TennisCoach implements Coach {
 	@Override
 	public String getDailyFortune() {
 		return fortuneService.getFortune();
+	}
+	
+	public void getCoach() {
+		System.out.println("Tennis Coach: email is " + this.email);
+		System.out.println("Tennis Coach: team is " + this.team);
 	}
 
 }
