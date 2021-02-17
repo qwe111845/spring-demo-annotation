@@ -1,5 +1,8 @@
 package com.lin.springdemo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,7 +24,6 @@ public class TennisCoach implements Coach {
 	private String team;
 	
 	public TennisCoach() {
-		System.out.println("Tennis Coach: In construct method.");
 	}
 	/*
 	@Autowired
@@ -52,4 +54,15 @@ public class TennisCoach implements Coach {
 		System.out.println("Tennis Coach: team is " + this.team);
 	}
 
+	@PostConstruct
+	public void postConstruct() {
+		System.out.println(">>>Tennis Coach: In postConstruct method.");
+
+	}
+	
+	@PreDestroy
+	public void preDestroy() {
+		System.out.println(">>>Tennis Coach: In preDestroy method.");
+
+	}
 }
